@@ -1,0 +1,45 @@
+html, body {
+    width: 100%;
+    height: 100%;
+}
+  
+
+.AppContainer{
+    display: grid;
+    grid-template-columns: 20vw 80vw;
+    grid-auto-flow: column;
+    height: 100vh;
+    width: 100vw;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.ConfigModifier{
+    justify-self: center;
+    align-self: normal;
+    text-align: center;
+    width: 20vw;
+    height: 100vh;
+    justify-content: center;
+    align-content: center;
+}
+
+.ConfigModifier form{
+    justify-items: center;
+}
+
+.ConfigGenerator{
+    justify-content: center;
+    align-content: center;
+    height: 100vh;
+    width: 80vw;
+}
+
+.ConfigGenerator .card{
+    margin: auto;
+}
+
+.form-floating > label::after {
+    background-color: transparent !important;
+}
