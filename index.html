@@ -11,13 +11,13 @@
     <script src="/app/app.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
-<body>
+<body class="bg-secondary">
     <div class="AppContainer">
-        <div class="ConfigModifier">
+        <div class="ConfigModifier bg-dark">
             <div>
-                <h1 class="title">Warp Weaver</h1>
+                <h1 class="title"><a href="https://developers.cloudflare.com/cloudflare-one/connections/connect-devices/warp/deployment/" style="text-decoration: none; color: inherit;">Warp Weaver</a></h1>
             </div>
-            <div id="footer" class="form-text">Your Details Stay With You. ❤️</div>
+            <div id="footer" class="form-text" data-bs-toggle="tooltip" data-bs-delay='{"show":0,"hide":600}' data-bs-placement="top" data-bs-html="true" data-bs-title="Your privacy is our priority. All data processing is performed within your web browser.">Your Details Stay With You. ❤️</div>
         </div>
 
         <div class="ConfigGenerator bg-secondary">
@@ -37,7 +37,7 @@
                         <div class="accordion-item">
                           <h2 class="accordion-header">
                             <button class="accordion-button collapsed form-text" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
-                              Settings
+                              Options
                             </button>
                           </h2>
                           <div id="flush-collapseOne" class="accordion-collapse collapse bg-dark text-light" data-bs-parent="#accordionFlushExample">
@@ -197,7 +197,7 @@
             </div>
 
             <div class="vstack gap-2 col-md-2 mx-auto mt-4">
-              <button type="button" class="btn btn-primary">Add Organization</button>
+              <button type="button" class="btn btn-primary" data-bs-toggle="tooltip" data-bs-delay='{"show":0,"hide":600}' data-bs-placement="right" data-bs-html="true" data-bs-title="This feature is in the works, and the Cloudflarians are giving it their all. (They might even be sacrificing a rubber ducky to the coding gods.) ✨">Add Organization</button>
               <button type="button" class="btn btn-success" disabled>Export Configuration</button>
             </div>
         </div>
