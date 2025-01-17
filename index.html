@@ -6,6 +6,7 @@
     <title>WARP Weaver</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="/style/style.css">
     <link rel="shortcut icon" href="NET.svg">
     <script src="/app/app.js"></script>
@@ -22,15 +23,14 @@
 
         <div class="ConfigGenerator bg-secondary">
             <div class="card bg-dark organization" style="max-width: 40vw;">
-                <form class="card-body">
+                <form class="card-body" id="form1">
                     <div class="form-floating mb-3">
-                      <input type="text" class="form-control bg-dark" id="teamname1" placeholder="Cloudflare">
-                      <label for="exampleInputEmail1" class="form-label text-light">Organization (Team) Name </label>
-                      
+                      <input type="text" class="form-control bg-dark" id="OrganizationName" placeholder="Cloudflare">
+                      <label for="OrganizationName" class="form-label text-light">Organization (Team) Name </label>
                     </div>
                     <div class="form-floating mb-3">
-                      <input type="text" class="form-control bg-dark" id="displayname1" placeholder="Cloudflare">
-                      <label for="displayname1" class="form-label text-light">Display Name</label>
+                      <input type="text" class="form-control bg-dark" id="DisplayName" placeholder="Cloudflare">
+                      <label for="DisplayName" class="form-label text-light">Display Name</label>
                     </div>
                     
                     <div class="accordion accordion-flush" id="accordionFlushExample">
@@ -52,12 +52,12 @@
                                   <div id="prelogonAccordion" class="accordion-collapse collapse">
                                     <div class="accordion-body">
                                       <div class="form-floating mb-3">
-                                        <input type="text" class="form-control" id="clientID" placeholder="Cloudflare">
-                                        <label for="clientID" class="form-label">Client ID</label>
+                                        <input type="text" class="form-control" id="ClientID" placeholder="Cloudflare">
+                                        <label for="ClientID" class="form-label">Client ID</label>
                                       </div>
                                       <div class="form-floating mb-3">
-                                        <input type="text" class="form-control" id="clientSecret" placeholder="Cloudflare">
-                                        <label for="clientSecret" class="form-label">Client Secret</label>
+                                        <input type="text" class="form-control" id="ClientSecret" placeholder="Cloudflare">
+                                        <label for="ClientSecret" class="form-label">Client Secret</label>
                                       </div>
                                     </div>
                                   </div>
@@ -71,8 +71,8 @@
                                   <div id="multiuserAccordion" class="accordion-collapse collapse">
                                     <div class="accordion-body">
                                       <div class="form-check form-switch">
-                                        <input class="form-check-input" type="checkbox" role="switch" id="multiuserEnabled">
-                                        <label class="form-check-label" for="multiuserEnabled">Enabled</label>
+                                        <input class="form-check-input" type="checkbox" value="" role="switch" id="MultiUser">
+                                        <label class="form-check-label" for="MultiUser">Enabled</label>
                                       </div>                                      
                                     </div>
                                   </div>
@@ -86,11 +86,10 @@
                                   <div id="autoconnectAccordion" class="accordion-collapse collapse">
                                     <div class="accordion-body">
                                       <div class="form mb-3">
-                                        <label for="autoconnect" class="form-label">Auto-Connect After</label>
+                                        <label for="AutoConnect" class="form-label">Auto-Connect After</label>
                                         <div style="display: inline-block;">
-                                          <input type="number" class="form-control" id="autoconnect" placeholder="0 Seconds">
+                                          <input type="number" class="form-control" id="AutoConnect" placeholder="0 Seconds">
                                         </div>
-                                        
                                       </div>                                      
                                     </div>
                                   </div>
@@ -104,8 +103,8 @@
                                   <div id="oaeAccordion" class="accordion-collapse collapse">
                                     <div class="accordion-body">
                                       <div class="form-floating mb-3">
-                                        <input type="text" class="form-control" id="oae" placeholder="1.2.3.4">
-                                        <label for="oae" class="form-label">API Endpoint IP</label>
+                                        <input type="text" class="form-control" id="OverrideAPIEndpoint" placeholder="1.2.3.4">
+                                        <label for="OverrideAPIEndpoint" class="form-label">API Endpoint IP</label>
                                       </div>
                                     </div>
                                   </div>
@@ -119,8 +118,8 @@
                                   <div id="odeAccordion" class="accordion-collapse collapse">
                                     <div class="accordion-body">
                                       <div class="form-floating mb-3">
-                                        <input type="text" class="form-control" id="ode" placeholder="1.2.3.4">
-                                        <label for="ode" class="form-label">DoH Endpoint IP</label>
+                                        <input type="text" class="form-control" id="OverrideDoHEndpoint" placeholder="1.2.3.4">
+                                        <label for="OverrideDoHEndpoint" class="form-label">DoH Endpoint IP</label>
                                       </div>
                                     </div>
                                   </div>
@@ -134,8 +133,8 @@
                                   <div id="oweAccordion" class="accordion-collapse collapse">
                                     <div class="accordion-body">
                                       <div class="form-floating mb-3">
-                                        <input type="text" class="form-control" id="owe" placeholder="203.0.113.0:500">
-                                        <label for="owe" class="form-label">WARP Endpoint IP & Port</label>
+                                        <input type="text" class="form-control" id="OverrideWARPEndpoint" placeholder="203.0.113.0:500">
+                                        <label for="OverrideWARPEndpoint" class="form-label">WARP Endpoint IP & Port</label>
                                       </div>
                                     </div>
                                   </div>
@@ -148,8 +147,8 @@
                                   </h2>
                                   <div id="servicemodeAccordion" class="accordion-collapse collapse">
                                     <div class="accordion-body">
-                                      <select class="form-select" aria-label="Service Mode" id="servicemode">
-                                        <option selected>Select A Mode</option>
+                                      <select class="form-select" aria-label="Service Mode" id="ServiceMode">
+                                        <option selected></option>
                                         <option value="warp">Gateway with WARP</option>
                                         <option value="1dot1">Gateway with DoH</option>
                                         <option value="proxy">Proxy mode</option>
@@ -166,8 +165,8 @@
                                   <div id="surlAccordion" class="accordion-collapse collapse">
                                     <div class="accordion-body">
                                       <div class="form-floating mb-3">
-                                        <input type="text" class="form-control" id="surl" placeholder="https://support.cloudflare.com">
-                                        <label for="surl" class="form-label">Support URL</label>
+                                        <input type="text" class="form-control" id="SupportURL" placeholder="https://support.cloudflare.com">
+                                        <label for="SupportURL" class="form-label">Support URL</label>
                                       </div>
                                     </div>
                                   </div>
@@ -181,8 +180,8 @@
                                   <div id="slockedAccordion" class="accordion-collapse collapse">
                                     <div class="accordion-body">
                                       <div class="form-check form-switch">
-                                        <input class="form-check-input" type="checkbox" role="switch" id="switchlockEnabled">
-                                        <label class="form-check-label" for="switchlockEnabled">Lock Switch</label>
+                                        <input class="form-check-input" type="checkbox" role="switch" value="" id="SwitchLock">
+                                        <label class="form-check-label" for="SwitchLock">Lock Switch</label>
                                       </div>                                      
                                     </div>
                                   </div>
