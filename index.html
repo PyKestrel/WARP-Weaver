@@ -12,13 +12,13 @@
     <div class="AppContainer">
         <div class="ConfigModifier">
             <div>
-                <h1 style="font-size: 2.5em;">Warp Weaver</h1>
+                <h1 class="title">Warp Weaver</h1>
             </div>
-            <div id="footer" class="form-text text-light" style="bottom: 2vh; position: fixed; left: 5vw;">Your Details Stay With You. ❤️</div>
+            <div id="footer" class="form-text">Your Details Stay With You. ❤️</div>
         </div>
 
         <div class="ConfigGenerator bg-secondary">
-            <div class="card bg-dark" style="max-width: 40vw;">
+            <div class="card bg-dark organization" style="max-width: 40vw;">
                 <form class="card-body">
                     <div class="form-floating mb-3">
                       <input type="text" class="form-control bg-dark" id="teamname1" placeholder="Cloudflare">
@@ -30,7 +30,7 @@
                     </div>
                     
                     <div class="accordion accordion-flush" id="accordionFlushExample">
-                        <div class="accordion-item" data-bs-theme="dark">
+                        <div class="accordion-item">
                           <h2 class="accordion-header">
                             <button class="accordion-button collapsed form-text" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
                               Settings
@@ -39,7 +39,7 @@
                           <div id="flush-collapseOne" class="accordion-collapse collapse bg-dark text-light" data-bs-parent="#accordionFlushExample">
                             <div class="accordion-body">
                               <div class="accordion">
-                                <div class="accordion-item" data-bs-theme="dark">
+                                <div class="accordion-item" >
                                   <h2 class="accordion-header">
                                     <button class="accordion-button form-text" type="button" data-bs-toggle="collapse" data-bs-target="#prelogonAccordion" aria-expanded="true" aria-controls="prelogonAccordion" data-bs-theme="dark">
                                       Pre-Logon
@@ -58,7 +58,7 @@
                                     </div>
                                   </div>
                                 </div>
-                                <div class="accordion-item" data-bs-theme="dark">
+                                <div class="accordion-item">
                                   <h2 class="accordion-header">
                                     <button class="accordion-button form-text text-light" type="button" data-bs-toggle="collapse" data-bs-target="#multiuserAccordion" aria-expanded="true" aria-controls="multiuserAccordion">
                                       Multi-User
@@ -73,6 +73,113 @@
                                     </div>
                                   </div>
                                 </div>
+                                <div class="accordion-item">
+                                  <h2 class="accordion-header">
+                                    <button class="accordion-button form-text text-light" type="button" data-bs-toggle="collapse" data-bs-target="#autoconnectAccordion" aria-expanded="true" aria-controls="autoconnectAccordion">
+                                      Auto-Connect
+                                    </button>
+                                  </h2>
+                                  <div id="autoconnectAccordion" class="accordion-collapse collapse">
+                                    <div class="accordion-body">
+                                      <div class="form mb-3">
+                                        <label for="autoconnect" class="form-label">Auto-Connect After</label>
+                                        <input type="number" class="form-control" id="autoconnect" placeholder="0 Seconds">
+                                      </div>                                      
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="accordion-item" >
+                                  <h2 class="accordion-header">
+                                    <button class="accordion-button form-text" type="button" data-bs-toggle="collapse" data-bs-target="#oaeAccordion" aria-expanded="true" aria-controls="oaeAccordion" data-bs-theme="dark">
+                                      Override API Endpoint
+                                    </button>
+                                  </h2>
+                                  <div id="oaeAccordion" class="accordion-collapse collapse">
+                                    <div class="accordion-body">
+                                      <div class="form-floating mb-3">
+                                        <input type="text" class="form-control" id="oae" placeholder="1.2.3.4">
+                                        <label for="oae" class="form-label">API Endpoint IP</label>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="accordion-item" >
+                                  <h2 class="accordion-header">
+                                    <button class="accordion-button form-text" type="button" data-bs-toggle="collapse" data-bs-target="#odeAccordion" aria-expanded="true" aria-controls="odeAccordion" data-bs-theme="dark">
+                                      Override DoH Endpoint
+                                    </button>
+                                  </h2>
+                                  <div id="odeAccordion" class="accordion-collapse collapse">
+                                    <div class="accordion-body">
+                                      <div class="form-floating mb-3">
+                                        <input type="text" class="form-control" id="ode" placeholder="1.2.3.4">
+                                        <label for="ode" class="form-label">DoH Endpoint IP</label>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="accordion-item" >
+                                  <h2 class="accordion-header">
+                                    <button class="accordion-button form-text" type="button" data-bs-toggle="collapse" data-bs-target="#oweAccordion" aria-expanded="true" aria-controls="oweAccordion" data-bs-theme="dark">
+                                      Override WARP Endpoint
+                                    </button>
+                                  </h2>
+                                  <div id="oweAccordion" class="accordion-collapse collapse">
+                                    <div class="accordion-body">
+                                      <div class="form-floating mb-3">
+                                        <input type="text" class="form-control" id="owe" placeholder="203.0.113.0:500">
+                                        <label for="owe" class="form-label">WARP Endpoint IP & Port</label>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="accordion-item" >
+                                  <h2 class="accordion-header">
+                                    <button class="accordion-button form-text" type="button" data-bs-toggle="collapse" data-bs-target="#servicemodeAccordion" aria-expanded="true" aria-controls="servicemodeAccordion" data-bs-theme="dark">
+                                      Service Mode
+                                    </button>
+                                  </h2>
+                                  <div id="servicemodeAccordion" class="accordion-collapse collapse">
+                                    <div class="accordion-body">
+                                      <select class="form-select" aria-label="Service Mode" id="servicemode">
+                                        <option selected>Select A Mode</option>
+                                        <option value="warp">Gateway with WARP</option>
+                                        <option value="1dot1">Gateway with DoH</option>
+                                        <option value="proxy">Proxy mode</option>
+                                      </select>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="accordion-item" >
+                                  <h2 class="accordion-header">
+                                    <button class="accordion-button form-text" type="button" data-bs-toggle="collapse" data-bs-target="#surlAccordion" aria-expanded="true" aria-controls="surlAccordion" data-bs-theme="dark">
+                                      Support URL
+                                    </button>
+                                  </h2>
+                                  <div id="surlAccordion" class="accordion-collapse collapse">
+                                    <div class="accordion-body">
+                                      <div class="form-floating mb-3">
+                                        <input type="text" class="form-control" id="surl" placeholder="https://support.cloudflare.com">
+                                        <label for="surl" class="form-label">Support URL</label>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="accordion-item">
+                                  <h2 class="accordion-header">
+                                    <button class="accordion-button form-text text-light" type="button" data-bs-toggle="collapse" data-bs-target="#slockedAccordion" aria-expanded="true" aria-controls="slockedAccordion">
+                                      Switch Locked
+                                    </button>
+                                  </h2>
+                                  <div id="slockedAccordion" class="accordion-collapse collapse">
+                                    <div class="accordion-body">
+                                      <div class="form-check form-switch">
+                                        <input class="form-check-input" type="checkbox" role="switch" id="switchlockEnabled">
+                                        <label class="form-check-label" for="switchlockEnabled">Enabled</label>
+                                      </div>                                      
+                                    </div>
+                                  </div>
+                                </div>
                               </div>
                             </div>
                           </div>
@@ -80,6 +187,11 @@
                     </div>
                     
                 </form>
+            </div>
+
+            <div class="vstack gap-2 col-md-2 mx-auto mt-4">
+              <button type="button" class="btn btn-primary">Add Organization</button>
+              <button type="button" class="btn btn-success" disabled>Export Configuration</button>
             </div>
         </div>
     </div>
