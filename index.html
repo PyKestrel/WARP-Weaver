@@ -196,15 +196,19 @@
             </div>
 
             <div class="vstack gap-2 col-md-2 mx-auto" id="ConfigurationButtons">
-              <button type="button" class="btn btn-primary" id="addOrganization"  data-bs-toggle="tooltip" data-bs-delay='{"show":0,"hide":600}' data-bs-placement="right" data-bs-html="true" data-bs-title="This feature is in the works, and the Cloudflarians are giving it their all. (They might even be sacrificing a rubber ducky to the coding gods.) ✨">Add Organization</button>
-              <button type="button" class="btn btn-success" disabled>Export Configuration</button>
+              <button type="button" class="btn btn-primary" id="addOrganization">Add Organization</button>
+              <button type="button" class="btn btn-success"  onclick="GenerateXML()" data-bs-toggle="tooltip" data-bs-delay='{"show":0,"hide":600}' data-bs-placement="right" data-bs-html="true" data-bs-title="This Feature Is New, There Is No Data Validation Yet So Be Weary Of The Data You Enter! Beware Of Malformed Configurations">Export Configuration</button>
             </div>
         </div>
     </div>
     <script>
-      const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
-      const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
+      let tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
+      let tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
 
+      function RefreshTooltips() {
+        tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
+        tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
+      }
       // Event Listener To Add Additional Organization Form
       document.getElementById("addOrganization").addEventListener("click", addOrganization);
     </script>
