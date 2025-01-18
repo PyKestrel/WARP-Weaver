@@ -11,6 +11,7 @@
     <link rel="shortcut icon" href="NET.svg">
     <script src="/app/app.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
 </head>
 <body class="bg-secondary">
     <div class="AppContainer">
@@ -20,9 +21,8 @@
             </div>
             <div id="footer" class="form-text" data-bs-toggle="tooltip" data-bs-delay='{"show":0,"hide":600}' data-bs-placement="top" data-bs-html="true" data-bs-title="Your privacy is our priority. All data processing is performed within your web browser.">Your Details Stay With You. ❤️</div>
         </div>
-
-        <div class="ConfigGenerator bg-secondary">
-            <div class="card bg-dark organization" style="max-width: 40vw;">
+        <div class="ConfigGenerator bg-secondary" id="ConfigGenerator">
+            <div class="card bg-dark organization mb-4 animate__animated animate__fadeInUp" style="max-width: 40vw;" id="organizationCard">
                 <form class="card-body" id="form1">
                     <div class="form-floating mb-3">
                       <input type="text" class="form-control bg-dark" id="OrganizationName" placeholder="Cloudflare">
@@ -36,16 +36,16 @@
                     <div class="accordion accordion-flush" id="accordionFlushExample">
                         <div class="accordion-item">
                           <h2 class="accordion-header">
-                            <button class="accordion-button collapsed form-text" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+                            <button class="accordion-button collapsed form-text" id="options" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
                               Options
                             </button>
                           </h2>
                           <div id="flush-collapseOne" class="accordion-collapse collapse bg-dark text-light" data-bs-parent="#accordionFlushExample">
                             <div class="accordion-body">
                               <div class="accordion">
-                                <div class="accordion-item" >
+                                <div class="accordion-item" id="prelogonAccordionItem">
                                   <h2 class="accordion-header">
-                                    <button class="accordion-button form-text" type="button" data-bs-toggle="collapse" data-bs-target="#prelogonAccordion" aria-expanded="true" aria-controls="prelogonAccordion" data-bs-theme="dark">
+                                    <button class="accordion-button form-text" id="prelogonbutton" type="button" data-bs-toggle="collapse" data-bs-target="#prelogonAccordion" aria-expanded="true" aria-controls="prelogonAccordion" data-bs-theme="dark">
                                       Pre-Logon <i class="fa fa-info-circle" aria-hidden="true" data-bs-toggle="tooltip" data-bs-delay='{"show":0,"hide":600}' data-bs-placement="right" data-bs-html="true" data-bs-title="Allows WARP to connect with a service token before a user completes the initial Windows login. For more information, refer to <a href='https://developers.cloudflare.com/cloudflare-one/connections/connect-devices/warp/deployment/mdm-deployment/windows-prelogin/'>Connect WARP before Windows login.</a>" style="margin-left: 10px;"></i>
                                     </button>
                                   </h2>
@@ -62,9 +62,9 @@
                                     </div>
                                   </div>
                                 </div>
-                                <div class="accordion-item">
+                                <div class="accordion-item" id="multiuserAccordionItem">
                                   <h2 class="accordion-header">
-                                    <button class="accordion-button form-text text-light" type="button" data-bs-toggle="collapse" data-bs-target="#multiuserAccordion" aria-expanded="true" aria-controls="multiuserAccordion">
+                                    <button class="accordion-button form-text text-light" id="multiuserbutton" type="button" data-bs-toggle="collapse" data-bs-target="#multiuserAccordion" aria-expanded="true" aria-controls="multiuserAccordion">
                                       Multi-User <i class="fa fa-info-circle" aria-hidden="true" data-bs-toggle="tooltip" data-bs-delay='{"show":0,"hide":150}' data-bs-placement="right" data-bs-html="true" data-bs-title="Enables multiple user registrations on a Windows device." style="margin-left: 10px;"></i>
                                     </button>
                                   </h2>
@@ -79,7 +79,7 @@
                                 </div>
                                 <div class="accordion-item">
                                   <h2 class="accordion-header">
-                                    <button class="accordion-button form-text text-light" type="button" data-bs-toggle="collapse" data-bs-target="#autoconnectAccordion" aria-expanded="true" aria-controls="autoconnectAccordion">
+                                    <button class="accordion-button form-text text-light" id="autoconnectbutton" type="button" data-bs-toggle="collapse" data-bs-target="#autoconnectAccordion" aria-expanded="true" aria-controls="autoconnectAccordion">
                                       Auto-Connect <i class="fa fa-info-circle" aria-hidden="true" data-bs-toggle="tooltip" data-bs-delay='{"show":0,"hide":150}' data-bs-placement="right" data-bs-html="true" data-bs-title="If switch has been turned off by user, the client will automatically turn itself back on after the specified number of seconds." style="margin-left: 10px;"></i>
                                     </button>
                                   </h2>
@@ -96,7 +96,7 @@
                                 </div>
                                 <div class="accordion-item" >
                                   <h2 class="accordion-header">
-                                    <button class="accordion-button form-text" type="button" data-bs-toggle="collapse" data-bs-target="#oaeAccordion" aria-expanded="true" aria-controls="oaeAccordion" data-bs-theme="dark">
+                                    <button class="accordion-button form-text" type="button" id="oaebutton" data-bs-toggle="collapse" data-bs-target="#oaeAccordion" aria-expanded="true" aria-controls="oaeAccordion" data-bs-theme="dark">
                                       Override API Endpoint <i class="fa fa-info-circle" aria-hidden="true" data-bs-toggle="tooltip" data-bs-delay='{"show":0,"hide":150}' data-bs-placement="right" data-bs-html="true" data-bs-title="Overrides the IP address used by the WARP client to communicate with the client orchestration API. If you set this parameter, be sure to update your organization's firewall to ensure the new IP is allowed through." style="margin-left: 10px;"></i>
                                     </button>
                                   </h2>
@@ -111,7 +111,7 @@
                                 </div>
                                 <div class="accordion-item" >
                                   <h2 class="accordion-header">
-                                    <button class="accordion-button form-text" type="button" data-bs-toggle="collapse" data-bs-target="#odeAccordion" aria-expanded="true" aria-controls="odeAccordion" data-bs-theme="dark">
+                                    <button class="accordion-button form-text" type="button" id="odebutton" data-bs-toggle="collapse" data-bs-target="#odeAccordion" aria-expanded="true" aria-controls="odeAccordion" data-bs-theme="dark">
                                       Override DoH Endpoint <i class="fa fa-info-circle" aria-hidden="true" data-bs-toggle="tooltip" data-bs-delay='{"show":0,"hide":150}' data-bs-placement="right" data-bs-html="true" data-bs-title="Overrides the IP address used by the WARP client to resolve DNS queries via DNS over HTTPS (DoH). If you set this parameter, be sure to update your organization's firewall to ensure the new IP is allowed through." style="margin-left: 10px;"></i>
                                     </button>
                                   </h2>
@@ -126,7 +126,7 @@
                                 </div>
                                 <div class="accordion-item" >
                                   <h2 class="accordion-header">
-                                    <button class="accordion-button form-text" type="button" data-bs-toggle="collapse" data-bs-target="#oweAccordion" aria-expanded="true" aria-controls="oweAccordion" data-bs-theme="dark">
+                                    <button class="accordion-button form-text" type="button" id="owebutton" data-bs-toggle="collapse" data-bs-target="#oweAccordion" aria-expanded="true" aria-controls="oweAccordion" data-bs-theme="dark">
                                       Override WARP Endpoint <i class="fa fa-info-circle" aria-hidden="true" data-bs-toggle="tooltip" data-bs-delay='{"show":0,"hide":150}' data-bs-placement="right" data-bs-html="true" data-bs-title="Overrides the IP address and UDP port used by the WARP client to send traffic to Cloudflare's edge. If you set this parameter, be sure to update your organization's firewall to ensure the new IP is allowed through." style="margin-left: 10px;"></i>
                                     </button>
                                   </h2>
@@ -141,7 +141,7 @@
                                 </div>
                                 <div class="accordion-item" >
                                   <h2 class="accordion-header">
-                                    <button class="accordion-button form-text" type="button" data-bs-toggle="collapse" data-bs-target="#servicemodeAccordion" aria-expanded="true" aria-controls="servicemodeAccordion" data-bs-theme="dark">
+                                    <button class="accordion-button form-text" type="button" id="servicemodebutton" data-bs-toggle="collapse" data-bs-target="#servicemodeAccordion" aria-expanded="true" aria-controls="servicemodeAccordion" data-bs-theme="dark">
                                       Service Mode <i class="fa fa-info-circle" aria-hidden="true" data-bs-toggle="tooltip" data-bs-delay='{"show":0,"hide":150}' data-bs-placement="right" data-bs-html="true" data-bs-title="Allows you to choose the operational mode of the client." style="margin-left: 10px;"></i>
                                     </button>
                                   </h2>
@@ -158,7 +158,7 @@
                                 </div>
                                 <div class="accordion-item" >
                                   <h2 class="accordion-header">
-                                    <button class="accordion-button form-text" type="button" data-bs-toggle="collapse" data-bs-target="#surlAccordion" aria-expanded="true" aria-controls="surlAccordion" data-bs-theme="dark">
+                                    <button class="accordion-button form-text" type="button" id="supporturlbutton" data-bs-toggle="collapse" data-bs-target="#surlAccordion" aria-expanded="true" aria-controls="surlAccordion" data-bs-theme="dark">
                                       Support URL <i class="fa fa-info-circle" aria-hidden="true" data-bs-toggle="tooltip" data-bs-delay='{"show":0,"hide":150}' data-bs-placement="right" data-bs-html="true" data-bs-title="When the WARP client is deployed via MDM, the in-app Send Feedback button is disabled by default. This parameter allows you to re-enable the button and direct feedback towards your organization." style="margin-left: 10px;"></i>
                                     </button>
                                   </h2>
@@ -173,7 +173,7 @@
                                 </div>
                                 <div class="accordion-item">
                                   <h2 class="accordion-header">
-                                    <button class="accordion-button form-text text-light" type="button" data-bs-toggle="collapse" data-bs-target="#slockedAccordion" aria-expanded="true" aria-controls="slockedAccordion">
+                                    <button class="accordion-button form-text text-light" type="button" id="switchlockedbutton" data-bs-toggle="collapse" data-bs-target="#slockedAccordion" aria-expanded="true" aria-controls="slockedAccordion">
                                       Switch Locked <i class="fa fa-info-circle" aria-hidden="true" data-bs-toggle="tooltip" data-bs-delay='{"show":0,"hide":150}' data-bs-placement="right" data-bs-html="true" data-bs-title="Allows the user to turn off the WARP switch and disconnect the client." style="margin-left: 10px;"></i>
                                     </button>
                                   </h2>
@@ -195,8 +195,8 @@
                 </form>
             </div>
 
-            <div class="vstack gap-2 col-md-2 mx-auto mt-4">
-              <button type="button" class="btn btn-primary" data-bs-toggle="tooltip" data-bs-delay='{"show":0,"hide":600}' data-bs-placement="right" data-bs-html="true" data-bs-title="This feature is in the works, and the Cloudflarians are giving it their all. (They might even be sacrificing a rubber ducky to the coding gods.) ✨">Add Organization</button>
+            <div class="vstack gap-2 col-md-2 mx-auto" id="ConfigurationButtons">
+              <button type="button" class="btn btn-primary" id="addOrganization"  data-bs-toggle="tooltip" data-bs-delay='{"show":0,"hide":600}' data-bs-placement="right" data-bs-html="true" data-bs-title="This feature is in the works, and the Cloudflarians are giving it their all. (They might even be sacrificing a rubber ducky to the coding gods.) ✨">Add Organization</button>
               <button type="button" class="btn btn-success" disabled>Export Configuration</button>
             </div>
         </div>
@@ -204,6 +204,9 @@
     <script>
       const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
       const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
+
+      // Event Listener To Add Additional Organization Form
+      document.getElementById("addOrganization").addEventListener("click", addOrganization);
     </script>
 </body>
 </html>
