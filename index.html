@@ -13,23 +13,23 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
 </head>
-<body class="bg-secondary">
+<body class="">
     <div class="AppContainer">
-        <div class="ConfigModifier bg-dark">
+        <div class="ConfigModifier">
             <div>
-                <h1 class="title"><a href="https://developers.cloudflare.com/cloudflare-one/connections/connect-devices/warp/deployment/" style="text-decoration: none; color: inherit;">Warp Weaver</a></h1>
+                <h1 class="title" data-bs-toggle="tooltip" data-bs-delay='{"show":0,"hide":150}' data-bs-placement="bottom" data-bs-html="true" data-bs-title="Click To Go To Our Cloudflare Docs!"><a href="https://developers.cloudflare.com/cloudflare-one/connections/connect-devices/warp/deployment/" style="text-decoration: none; color: inherit;">WARP Weaver</a></h1>
             </div>
             <div id="footer" class="form-text" data-bs-toggle="tooltip" data-bs-delay='{"show":0,"hide":600}' data-bs-placement="top" data-bs-html="true" data-bs-title="Your privacy is our priority. All data processing is performed within your web browser.">Your Details Stay With You. ❤️</div>
         </div>
-        <div class="ConfigGenerator bg-secondary" id="ConfigGenerator">
-            <div class="card bg-dark organization mb-4 animate__animated animate__fadeInUp" style="max-width: 40vw;" id="organizationCard">
+        <div class="ConfigGenerator bg-dark-subtle" id="ConfigGenerator">
+            <div class="card organization mb-4 animate__animated animate__fadeInUp" style="max-width: 40vw;" id="organizationCard">
                 <form class="card-body" id="form1">
                     <div class="form-floating mb-3">
-                      <input type="text" class="form-control bg-dark" id="OrganizationName" placeholder="Cloudflare">
+                      <input type="text" class="form-control" id="OrganizationName" placeholder="Cloudflare">
                       <label for="OrganizationName" class="form-label text-light">Organization (Team) Name </label>
                     </div>
                     <div class="form-floating mb-3">
-                      <input type="text" class="form-control bg-dark" id="DisplayName" placeholder="Cloudflare">
+                      <input type="text" class="form-control" id="DisplayName" placeholder="Cloudflare">
                       <label for="DisplayName" class="form-label text-light">Display Name</label>
                     </div>
                     
@@ -196,8 +196,8 @@
             </div>
 
             <div class="vstack gap-2 col-md-2 mx-auto" id="ConfigurationButtons">
-              <button type="button" class="btn btn-primary" id="addOrganization">Add Organization</button>
-              <button type="button" class="btn btn-success"  onclick="DownloadXML()" data-bs-toggle="tooltip" data-bs-delay='{"show":0,"hide":600}' data-bs-placement="right" data-bs-html="true" data-bs-title="This Feature Is New, There Is No Data Validation Yet So Be Weary Of The Data You Enter! Beware Of Malformed Configurations">Export Configuration</button>
+              <button type="button" class="btn btn-light" id="addOrganization">Add Organization</button>
+              <button type="button" class="btn btn-primary"  onclick="DownloadXML()" data-bs-toggle="tooltip" data-bs-delay='{"show":0,"hide":600}' data-bs-placement="right" data-bs-html="true" data-bs-title="This Feature Is New, There Is No Data Validation Yet So Be Weary Of The Data You Enter! Beware Of Malformed Configurations">Export Configuration</button>
             </div>
         </div>
     </div>
