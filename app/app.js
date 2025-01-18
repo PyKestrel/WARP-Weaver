@@ -353,11 +353,14 @@ function GenerateXML() {
         DocumentDictArray.appendChild(ElemDict);
     });
     XMLDocument.appendChild(DocumentRootElement);
-    console.log(new XMLSerializer().serializeToString(XMLDocument))
+    return XMLDocument;
+}
 
+function DownloadXML(){
+    GeneratedXMLDocument = GenerateXML();
     var fileName = "mdm.xml";
     var fileType = '.xml';
-    var blob = new Blob([new XMLSerializer().serializeToString(XMLDocument)], { type: 'octect/stream' });
+    var blob = new Blob([new XMLSerializer().serializeToString(GeneratedXMLDocument)], { type: 'octect/stream' });
     var a = document.createElement('a');
     a.download = fileName;
     a.href = URL.createObjectURL(blob);
