@@ -235,6 +235,18 @@ span:hover{
     width: 40vw;
 }
 
+#description{
+    width: 70%; 
+    text-align: center;
+    margin: auto;
+}
+
+#GetStarted{
+    width: 100%;
+    align-items: center;
+    display: none;
+}
+
 
 
 @media (prefers-color-scheme: light) {
@@ -263,6 +275,17 @@ span:hover{
         width: 70vw;
     }
     #organizationCard{
-        width: 70vw;
+        width: 80vw;
     }
-  }
+    #description{
+        width: 85%; 
+    }
+    #GetStarted{
+        display: block;
+    }
+    #footer{
+        transform: scale(0.8);
+        bottom: 2vh; 
+        left: 2vw;
+    }
+}
