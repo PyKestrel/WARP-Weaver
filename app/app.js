@@ -384,6 +384,7 @@ function DownloadXML() {
   if (!ValidateForm()) {
     return;
   }
+  EnableWARPDrive();
   GeneratedXMLDocument = GenerateXML();
   var fileName = "mdm.xml";
   var fileType = ".xml";
@@ -402,4 +403,25 @@ function DownloadXML() {
   setTimeout(function () {
     URL.revokeObjectURL(a.href);
   }, 1500);
+}
+
+
+
+// Future Warp Drive Animation
+// Use This To Reference The Animated SVG
+// window.getComputedStyle(document.getElementsByClassName("ConfigGenerator").ConfigGenerator).getPropertyValue("background-image")
+
+function EnableWARPDrive() {
+  let EncodedSVG = window.getComputedStyle(document.getElementsByClassName("ConfigGenerator").ConfigGenerator).getPropertyValue("background-image")
+  var DecodedSubstring = decodeURIComponent(EncodedSVG.substring(
+    EncodedSVG.indexOf(",") + 1, 
+    EncodedSVG.lastIndexOf('"')
+ ))
+ let NewDecodedSVG = DecodedSubstring.replaceAll('dur="2s"', 'dur="0.4s"')
+ let NewEncodedSVG = encodeURIComponent(NewDecodedSVG)
+ let NewURL = `url("data:image/svg+xml,${NewEncodedSVG}")`
+ document.getElementsByClassName("ConfigGenerator").ConfigGenerator.style.backgroundImage = NewURL
+ setTimeout(() => {
+  document.getElementsByClassName("ConfigGenerator").ConfigGenerator.style.backgroundImage = EncodedSVG
+ }, 2000);
 }
