@@ -231,6 +231,9 @@ span:hover{
     border-color: #e0751d !important;
 }
 
+#organizationCard{
+    width: 40vw;
+}
 
 
 
@@ -242,3 +245,24 @@ span:hover{
         color: #FAAD3F;
     }
 }
+
+@media only screen and (max-width: 900px) {
+    /* For mobile phones: */
+    .AppContainer{
+        grid-template-columns: 100%;
+        grid-auto-flow: row;
+    }
+    .ConfigGenerator{
+        width: 100vw;
+    }
+    .ConfigModifier{
+        max-height: 50vh;
+        width: 80vw;
+    }
+    #ConfigurationButtons{
+        width: 70vw;
+    }
+    #organizationCard{
+        width: 70vw;
+    }
+  }
