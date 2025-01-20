@@ -269,7 +269,33 @@ span:hover{
     }
     .ConfigModifier{
         max-height: 50vh;
-        width: 80vw;
+        width: 100vw;
+        background-image: url("/CloudflarePattern.svg");
+        background-size:cover;
+        -webkit-animation: slidein 100s;
+        animation: slidein 100s;
+
+        -webkit-animation-fill-mode: forwards;
+        animation-fill-mode: forwards;
+
+        -webkit-animation-iteration-count: infinite;
+        animation-iteration-count: infinite;
+
+        -webkit-animation-direction: alternate;
+        animation-direction: alternate;
+
+        -webkit-animation-timing-function: linear;
+        animation-timing-function: linear;
+    }
+    @-webkit-keyframes slidein {
+        from {background-position: top; background-size:3000px; }
+        to {background-position: -100px 0px;background-size:2750px;}
+        }
+        
+    @keyframes slidein {
+        from {background-position: top;background-size:3000px; }
+        to {background-position: -100px 0px;background-size:2750px;}
+        
     }
     #ConfigurationButtons{
         width: 70vw;
@@ -289,3 +315,4 @@ span:hover{
         left: 2vw;
     }
 }
+
