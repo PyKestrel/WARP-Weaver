@@ -412,7 +412,8 @@ function DownloadXML() {
 // window.getComputedStyle(document.getElementsByClassName("ConfigGenerator").ConfigGenerator).getPropertyValue("background-image")
 
 function EnableWARPDrive() {
-  let EncodedSVG = window.getComputedStyle(document.getElementsByClassName("ConfigGenerator").ConfigGenerator).getPropertyValue("background-image")
+  try {
+    let EncodedSVG = window.getComputedStyle(document.getElementsByClassName("ConfigGenerator").ConfigGenerator).getPropertyValue("background-image")
   var DecodedSubstring = decodeURIComponent(EncodedSVG.substring(
     EncodedSVG.indexOf(",") + 1, 
     EncodedSVG.lastIndexOf('"')
@@ -424,4 +425,7 @@ function EnableWARPDrive() {
  setTimeout(() => {
   document.getElementsByClassName("ConfigGenerator").ConfigGenerator.style.backgroundImage = EncodedSVG
  }, 2000);
+  } catch (error) {
+    console.log(error)
+  }
 }

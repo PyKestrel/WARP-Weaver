@@ -30,6 +30,7 @@
                 <button type="button" class="btn btn-primary" id="GetStartedButton"> <a href="#organizationCard" style="text-decoration: none; color: inherit;">Get Started</a> </button>
             </div>
             <div id="footer" class="form-text" data-bs-toggle="tooltip" data-bs-delay='{"show":0,"hide":600}' data-bs-placement="top" data-bs-html="true" data-bs-title="Your privacy is our priority. All data processing is performed within your web browser.">Your Details Stay With You. ❤️</div>
+            <div class="AnimationToggle" id="AnimationToggle" data-bs-toggle="tooltip" data-bs-delay='{"show":0,"hide":600}' data-bs-placement="top" data-bs-html="true" data-bs-title="Disable Animation"><i class="fa fa-space-shuttle" aria-hidden="true" style="font-size: 1.5rem;"></i></div>
         </div>
         <div class="ConfigGenerator bg-dark-subtle" id="ConfigGenerator">
             <div class="card organization mb-4 animate__animated animate__fadeInUp" id="organizationCard">
@@ -221,6 +222,11 @@
       }
       // Event Listener To Add Additional Organization Form
       document.getElementById("addOrganization").addEventListener("click", addOrganization);
+
+      // Event Listener To Toggle Animation
+      document.getElementById("AnimationToggle").addEventListener("click", () => {
+        document.getElementById("ConfigGenerator").style.backgroundImage = "none";
+      });
     </script>
 </body>
 </html>

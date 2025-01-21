@@ -148,7 +148,7 @@ html, body {
 }
 
 .title {
-    font-size: 3rem;
+    font-size: 2.5rem;
     transition: 0.4s;
     font-weight: bolder;
 }
@@ -216,6 +216,12 @@ span:hover{
 
 .ConfigGenerator .card{
     margin: auto;
+}
+
+.AnimationToggle{
+    position: fixed;
+    bottom: 2vh;
+    right: 2vw;
 }
 
 .form-floating > label::after {
