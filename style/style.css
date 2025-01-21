@@ -211,6 +211,7 @@ span:hover{
     width: 80vw;
     overflow: scroll;
     transition: 0.4s;
+    overflow-x: hidden;
 }
 
 .ConfigGenerator .card{
@@ -219,8 +220,8 @@ span:hover{
 
 .AnimationToggle{
     position: fixed;
-    bottom: 2vh;
-    right: 2vw;
+    bottom: 3vh;
+    right: 3vw;
 }
 
 .form-floating > label::after {
