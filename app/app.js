@@ -377,6 +377,15 @@ function GenerateXML() {
     DocumentDictArray.appendChild(ElemDict);
   });
   XMLDocument.appendChild(DocumentRootElement);
+
+  // Pretty Print XML
+  PrettyXML = formatXml(new XMLSerializer().serializeToString(XMLDocument));
+  PrettyXML = PrettyXML.replace('xmlns="http://www.w3.org/1999/xhtml"',"").replace(`<?xml version="1.0" encoding="UTF-8" standalone="no"?>`,"").replace(`xmlns=""`,"")
+  // Create a DOMParser
+  var parser = new DOMParser();
+
+  // Use it to turn your xmlString into an XMLDocument
+  XMLDocument = parser.parseFromString(PrettyXML, "application/xml");
   return XMLDocument;
 }
 
@@ -428,4 +437,17 @@ function EnableWARPDrive() {
   } catch (error) {
     console.log(error)
   }
+}
+
+
+// Pretty Print XML Function From https://stackoverflow.com/a/49458964
+function formatXml(xml, tab) { // tab = optional indent value, default is tab (\t)
+  var formatted = '', indent= '';
+  tab = tab || '\t';
+  xml.split(/>\s*</).forEach(function(node) {
+      if (node.match( /^\/\w/ )) indent = indent.substring(tab.length); // decrease indent by one 'tab'
+      formatted += indent + '<' + node + '>\r\n';
+      if (node.match( /^<?\w[^>]*[^\/]$/ )) indent += tab;              // increase indent
+  });
+  return formatted.substring(1, formatted.length-3);
 }
